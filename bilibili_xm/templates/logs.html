@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+    <!--    <link rel="stylesheet" href="bilibili_top\bilibili_xm/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
+</head>
+
+<body>
+<div class="row" style="height: 60px">
+    <h2 style="text-align:center;">哔哩哔哩排行榜模块分析</h2>
+</div>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main2" style="width: 600px;height:400px;margin-left: 250px;"></div>
+<div style="height: 50px"></div>
+<div style="position: relative;">
+    <div id="main" style="width: 500px;height:300px;"></div>
+    <div id="main3" style="width: 500px;height:300px; position: absolute;bottom: 0px;left: 500px;"></div>
+</div>
+
+<script type="text/javascript">
+    var myChart2 = echarts.init(document.getElementById('main2'));
+            myChart2.setOption({
+    color: ['#3398DB'],
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    title:{
+    text:"哔哩哔哩全站模块类型统计",
+    x:'center'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['动画', '娱乐', '影视', '数码', '时尚', '游戏', '生活', '知识', '美食', '舞蹈', '资讯', '音乐', '鬼畜'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: '计数',
+            type: 'bar',
+            barWidth: '60%',
+            data: {{c}}
+        }]
+});
+</script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        myChart.setOption({
+    color: ['#3398DB'],
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+        title:{
+    text:"哔哩哔哩排行榜各模块平均评分",
+    x:'center'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['动画', '音乐', '游戏', '美食', '鬼畜', '知识', '生活', '影视'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: '平均得分',
+            type: 'bar',
+            barWidth: '60%',
+            data: {{a}}
+        }]
+});
+</script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart3 = echarts.init(document.getElementById('main3'));
+        // 指定图表的配置项和数据
+        myChart3.setOption({
+    color: ['#3398DB'],
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+            title:{
+    text:"哔哩哔哩排行榜各模块平均播放量",
+    x:'center'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['动画', '音乐', '游戏', '美食', '鬼畜', '知识', '生活', '影视'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: '平均播放量',
+            type: 'bar',
+            barWidth: '60%',
+            data: {{a1}}
+        }]
+});
+</script>
+<!--<script src="bilibili_top\bilibili_xm/static/bootstrap-3.3.7-dist/jquery/jquery-2.2.4.min.js"></script>-->
+<!--<script src="bilibili_top\bilibili_xm/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
+</body>
+</html>
