@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from bilibili_top.bilibili_xm.etc import drama, bili_all
+from etc import drama, bili_all
 
 app = Flask(__name__)
 app.debug = True
@@ -20,4 +20,4 @@ def error(e):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
